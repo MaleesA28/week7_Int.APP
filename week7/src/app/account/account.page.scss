@@ -1,0 +1,11 @@
+#wrapper{
+    display:flex;
+    flex-direction: row;
+    gap:1em;
+}
+.master{
+    flex:1
+}
+.detail{
+    flex:2;
+}

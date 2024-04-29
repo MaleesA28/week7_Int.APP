@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Accounts </ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button ></ion-back-button> 
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <!-- <ion-button id="open-modal" expand="block"><ion-icon name="person-add-outline"></ion-icon></ion-button> -->
+      <ion-button id="open-modal" (click)="addContact()" expand="block"><ion-icon name="person-add-outline"></ion-icon></ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+  </ion-header>
+  
+  <ion-content class="ion-padding">
+   
+    <h3>List of Users</h3>
+    <div id="wrapper">
+      <div class="master">
+    <ion-list>
+      
+      <ion-item-sliding *ngFor="let user of users;index as i" #userslider>
+        <ion-item-options side="end">
+          <ion-item-option color="danger" (click)="delete(i)" >Delete</ion-item-option>
+          <ion-item-option  (click)="edit(i)">edit</ion-item-option>
+        </ion-item-options>
+      <ion-item (click)="displayUserInfo(i)">
+        {{user.firstname}},  {{user.lastname}}
+      </ion-item>
+    </ion-item-sliding>
+    </ion-list>
+    </div>
+    <ion-alert></ion-alert>
+    <div class="detail"><app-userdetails [user]="selecteduser"></app-userdetails></div>
+  </div>
+
+  </ion-content>
