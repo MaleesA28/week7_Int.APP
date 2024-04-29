@@ -21,9 +21,10 @@ export class ModalComponent  {
   constructor(private navParams:NavParams,private modalController:ModalController) { }
 
 
-  closemodal(){
-    let newuser = new User(this.user.firstname,this.user.lastname,this.user.email)
-    this.us.updateUser(newuser,this.mode, this.indexpos);
+  closemodal() {
+    let newuser = new User(this.user.firstname, this.user.lastname, this.user.email);
+    this.user.updateUser(newuser, this.mode, this.indexpos);
     this.modalController.dismiss();
   }
+
 }

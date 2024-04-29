@@ -36,7 +36,7 @@ export class AccountPage implements OnInit {
 
   async ngOnInit() {
   //listen for new/editedusers
-   this.newusersub = this.us.getUsers().subscribe((data)=> {
+   this.newusersub = this.us.getUser().subscribe((data)=> {
     if (data.mode=='Add'){
       this.users.push(data.user);
     }
@@ -48,9 +48,6 @@ export class AccountPage implements OnInit {
 
    });
 
-   this.us.getUsers().then(val=>{
-    this.users=val;
-   });
   }
   
   noOnDestroy(){
@@ -67,12 +64,12 @@ export class AccountPage implements OnInit {
   }
   
 
-  delete(i:number,userslider:IonItemSliding){
+delete(i:number,userslider:IonItemSliding){
     //Delete a User
     this.presentAlert(i,userslider);
-    
-    
-  }
+    
+    
+  }
 
   async edit(i:number){
     //open a modal to Edit a new user
@@ -94,7 +91,7 @@ export class AccountPage implements OnInit {
     this.us.set('userlist',this.users);
   }
 
-  async showUser(i:number){
+  async displayUserInfo(i:number){
     this.selecteduser = this.users[i];
 
   }
